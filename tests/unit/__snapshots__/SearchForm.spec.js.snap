@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm renders the component 1`] = `<div><input type="text"> <button>Add speaker</button></div>`;
