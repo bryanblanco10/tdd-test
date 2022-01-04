@@ -15,11 +15,10 @@ describe("SpeakersList", () => {
     };
   });
 
-  const wrapper = shallowMount(SpeakersList, {
-    propsData: props,
-  });
-
   const build = () => {
+    const wrapper = shallowMount(SpeakersList, {
+      propsData: props,
+    });
     return {
       wrapper,
       Speakers: () => wrapper.findAllComponents(Speaker),
@@ -31,11 +30,10 @@ describe("SpeakersList", () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it("should render the correct", () => {
+  it("should render the correct", async () => {
     const { wrapper, Speakers } = build();
-    console.log(Speakers().length)
     expect(Speakers().length).toBe(1);
-    wrapper.setProps({
+    await wrapper.setProps({
       speakers: [
         speaker,
         {
@@ -45,5 +43,10 @@ describe("SpeakersList", () => {
       ],
     });
     expect(Speakers().length).toBe(2);
+  });
+
+  it("should send speaker data to the childs", () => {
+    const { Speakers } = build();
+    expect(Speakers().at(0).vm.speaker).toBe(speaker);
   });
 });

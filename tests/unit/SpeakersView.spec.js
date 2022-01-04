@@ -10,11 +10,10 @@ const localVue = createLocalVue();
 /* Adding vuex to our new local Vue instance */
 localVue.use(Vuex);
 
-let speaker = {
-  name: "Bryan",
-};
-
 describe("SpeakersView", () => {
+  let speaker = {
+    name: "Bryan",
+  };
   /* Creating global variables to access throung the test */
   let store, getters;
 
@@ -28,7 +27,6 @@ describe("SpeakersView", () => {
       getters,
     });
   });
-
   const build = () => {
     const wrapper = shallowMount(SpeakersView, {
       /* Passing the created store and the vue instance when mounting the component */

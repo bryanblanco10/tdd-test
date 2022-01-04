@@ -3,7 +3,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    speaker: {
+      type: Object,
+      default: () => {},
+    },
+  },
+};
 </script>
 
 <style></style>
